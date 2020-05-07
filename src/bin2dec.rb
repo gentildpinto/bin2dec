@@ -14,9 +14,11 @@ def bin2decConversor(binaryNumber)
         return "You may not type a non binary digit! :/"
     else
         size = arrayOfDigits.size
+        idx = size - 1
         decimalValue = 0
         for i in (0...size)
-            decimalValue += (arrayOfDigits[i])*(2**i)
+            decimalValue += (arrayOfDigits[i])*(2**idx)
+            idx -= 1
         end
         return decimalValue
     end
