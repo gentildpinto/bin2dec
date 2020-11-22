@@ -10,9 +10,12 @@ class BinToDec
     end
 
     def self.conversor(binaryNumber)
+        binaryNumber = binaryNumber.to_s if binaryNumber.class.eql? Integer
+
         arrayOfDigits = binaryNumber.chomp.split("").map!{ |value| value.to_i }
+
         if checkIfExistNoBinaryNumber(arrayOfDigits)
-            return "You may not type a non binary digit! :/"
+            return "You may not type a non binary digit!"
         else
             size = arrayOfDigits.size
             idx = size - 1
@@ -23,5 +26,7 @@ class BinToDec
             end
             return decimalValue
         end
+    rescue Exception
+        return "You may not give nil to convert, it cause an error!"
     end
 end

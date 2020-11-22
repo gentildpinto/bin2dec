@@ -1,34 +1,34 @@
-require "bin_to_dec"
-
-describe BinToDec do
-    describe "convert" do
-        context "give nil" do
-            it "returns zero" do
-                expect(BinToDec.conversor("")).to eq(0) 
+RSpec.describe BinToDec do
+    context "To convert" do
+        describe "Give 11" do
+            it "Should return number 3" do
+                expect(described_class.conversor(11)).to eq(3) 
             end
         end
 
-        context "give 11" do
-            it "returns 3" do
-                expect(BinToDec.conversor("11")).to eq(3) 
+        describe "Give 111" do
+            it "Should return number 7" do
+                expect(described_class.conversor(111)).to eq(7)
             end
         end
 
-        context "give 111" do
-            it "returns 7" do
-                expect(BinToDec.conversor("111")).to eq(7) 
+        describe "Give 100" do
+            it "Should return number 4" do
+                expect(described_class.conversor(100)).to eq(4) 
+            end
+        end
+    end
+
+    context "Errors" do
+        describe "Give nil" do
+            it "Should return the message 'You may not give nil to convert, it cause an error!'" do
+                expect(described_class.conversor(nil)).to eq('You may not give nil to convert, it cause an error!') 
             end
         end
 
-        context "give 1002" do
-            it "returns the message => You may not type a non binary digit! :/ " do
-                expect(BinToDec.conversor("1002")).to eq("You may not type a non binary digit! :/") 
-            end
-        end
-
-        context "give 100" do
-            it "this test will be failed" do
-                expect(BinToDec.conversor("100")).to eq(100) 
+        describe "Give 1002" do
+            it "Should return the message 'You may not type a non binary digit!'" do
+                expect(described_class.conversor("1002")).to eq("You may not type a non binary digit!") 
             end
         end
     end
